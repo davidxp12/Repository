@@ -10,7 +10,7 @@
 		<title>Sistema Gerenciador de Locaçao de Carros</title>
 		
 		<link href="CSS/geral.css" rel="stylesheet" type="text/css"/>
-		<link href="CSS/menu.css" rel="stylesheet" type="text/css">
+		<link href="CSS/menu.css" rel="stylesheet" type="text/css" >
 		
 	
 		<style type="text/css">
