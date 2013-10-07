@@ -6,11 +6,17 @@ public class CommandFactory {
 	
 	public static Command obterCommand(String operacao) throws Exception {
 		
-		if ("cadastrarVeiculo".equals(operacao)) {
+		if ("cadastrarVeiculo".equals(operacao)) 
+		{
 			
 			return new CommandCadastrarVeiculo();
-			
-		} else{
+		}
+		
+		if("cadastrarPessoaFisica".equals(operacao))
+		{
+			return new 	CommandCadastrarPessoaFisica();
+		} 
+		else{
 			
 			throw new Exception("Não existe command implementado para a operação informada");
 		}

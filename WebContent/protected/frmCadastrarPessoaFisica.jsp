@@ -29,7 +29,7 @@
 	
 	<body>
 		
-		<form action="ManterPessoaFisica" method="post">
+		<form action="fc" method="post">
 			
 			<input type="hidden" name="operacao" value="cadastrar">
 			
@@ -188,7 +188,7 @@
 							
 							<td colspan="4" class="auto-style4">
 							
-								<input name="btnEnviar" type="submit" value="cadastrar" style="width: 140px" />
+								<input name="btnEnviar" type="submit" value="cadastrarPessoaFisica" style="width: 140px" />
 							
 							</td>
 						
