@@ -1,5 +1,8 @@
 package command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
@@ -27,7 +30,22 @@ public  class CommandCadastrarPessoaFisica extends Command {
 		novo.setEndereco(req.getParameter("txtendereco"));
 		novo.setRg(req.getParameter("txtRG"));
 		
-		return "frmCadastrarPessoaFisica.jsp";  // consulta.jsp
+		 
+
+			// req.getRequestDispatcher("MensagemOk.jsp").forward(req,resp);
+			// req.getRequestDispatcher("PessoaFisicaLista.jsp").forward(req,resp);
+			PessoaFisica pf = new PessoaFisica();
+
+			List<PessoaFisica> retorno2 = new ArrayList<PessoaFisica>();
+
+			retorno2 = pf.obterClientes("", "");
+			req.getSession().setAttribute("listaClientesFisicos",
+					retorno2);
+
+			req.getRequestDispatcher("ClienteFisicoLista.jsp").forward(
+					req, response);
+		 
+		return "ClienteFisicoLista.jsp";  // consulta.jsp
 	}
 
  
