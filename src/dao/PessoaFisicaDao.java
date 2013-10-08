@@ -83,7 +83,68 @@ public class PessoaFisicaDao extends Cliente{
 		}				
 		
 	}
-	//
+	
+     public PessoaFisica getClienteFisicoById(int id)
+     {
+    	 PessoaFisica clientepf = new PessoaFisica();
+ 		java.sql.Connection conn = null;
+
+ 		String sqlSelect;
+
+ 		PreparedStatement stm = null;
+ 		ResultSet rs = null;
+
+ 		sqlSelect = "SELECT * FROM tb_clientepf"
+ 				+ " WHERE id =?";
+
+ 		 
+
+ 		try {
+ 			conn = AcessoBD.obtemConexao();
+
+ 			stm = conn.prepareStatement(sqlSelect);
+ 			stm.setInt(1,id);
+ 		 
+
+ 			rs = stm.executeQuery();
+
+ 			while (rs.next()) {
+
+ 				
+
+ 				clientepf.setCategoria(rs.getString("categoria"));
+ 				clientepf.setCnh(rs.getString("cnh"));
+ 				clientepf.setId(rs.getInt("id"));
+ 				clientepf.setCpf(rs.getString("cpf"));
+ 				clientepf.setDtNascimento(rs.getString("datanascimento"));
+ 				clientepf.setDtValidade(rs.getString("datavalida"));
+ 				clientepf.setEmail(rs.getString("email"));
+ 				clientepf.setEndereco(rs.getString("endereco"));
+ 				clientepf.setEstadoEmissor(rs.getString("estadoemissor"));
+ 				clientepf.setNome(rs.getString("nome"));
+ 				clientepf.setPassaporte(rs.getString("passaporte"));
+ 				clientepf.setRg(rs.getString("rg"));
+ 				clientepf.setSexo(rs.getString("sexo"));
+ 				clientepf.setTelefone(rs.getString("telefone"));
+
+ 			}
+
+ 			return clientepf;
+
+ 		} catch (Exception e) {
+ 			e.printStackTrace();
+ 			return clientepf;
+ 		} finally {
+ 			if (stm != null) {
+ 				try {
+ 					stm.close();
+ 				} catch (Exception e1) {
+ 					System.out.print(e1.getStackTrace());
+ 				}
+ 			}
+ 		}
+ 	}
+     
 	public List<PessoaFisica> obterClientesFisicos(String nome, String cpf) {
 
 		ArrayList<PessoaFisica> resultado = new ArrayList<PessoaFisica>();

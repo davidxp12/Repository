@@ -16,7 +16,7 @@ public class AcessoBD {
 	public static Connection obtemConexao() throws SQLException
 	{
 		//return DriverManager.getConnection("jdbc:mysql://localhost:3309/bd_locadora?user=root&password=123456");
-		return DriverManager.getConnection("jdbc:postgresql://localhost:5433/RentalCar", "postgres","123456");	
+		return DriverManager.getConnection("jdbc:postgresql://localhost:5432/RentalCar", "postgres","123456");	
 	}
 	
 	public static void main (String []args) {

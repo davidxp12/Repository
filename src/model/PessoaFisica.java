@@ -143,14 +143,26 @@ public class PessoaFisica extends Cliente {
 		sexo = sexo;
 	}
 
-	 public  List<PessoaFisica> obterClientes (String nome, String cpf){
-			
-		 PessoaFisicaDao dao = new PessoaFisicaDao();
-			
-			return dao.obterClientesFisicos(nome,cpf);
-			
-		}
+	 public  List<PessoaFisica> obterClientes (String nome, String cpf)
+	 {
+	    PessoaFisicaDao dao = new PessoaFisicaDao();
+		return dao.obterClientesFisicos(nome,cpf);
+	 }
 	
+	 public void Cadastrar()
+	 {
+		PessoaFisicaDao dao = new  PessoaFisicaDao();
+		dao.cadastrar(this);
+	 }
+
+	public PessoaFisica getClienteFisicoById(int parseInt) {
+
+     PessoaFisicaDao dao = new PessoaFisicaDao();
+     
+     return dao.getClienteFisicoById(parseInt);
+
+
+	}
 
 
 }

@@ -31,7 +31,7 @@
 		
 		<form action="fc" method="post">
 			
-			<input type="hidden" name="operacao" value="cadastrar">
+			<input type="hidden" name="operacao" value="cadastrarPessoaFisica">
 			
 			<div class="auto-style1" style="width: 699px; height: 358px;">
 			

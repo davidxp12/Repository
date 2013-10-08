@@ -32,8 +32,9 @@ public class LoginController extends HttpServlet {
 		if (l.validarLogin()) {
 			
 		    request.getSession().setAttribute("txtLogin", l.getUsuario());
-		
-		    response.sendRedirect("protected/frmPrincipal.html");
+		 // Arrumar tela frmPrincipal
+		    response.sendRedirect("protected/frmPrincipal.jsp");
+		  //  response.sendRedirect("protected/frmCadastrarPessoaFisica.jsp");
 		    
 		} else {
 			

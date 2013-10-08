@@ -29,7 +29,7 @@ public class FrontController extends HttpServlet {
 		try {
 			Command cmd = CommandFactory.obterCommand(operacao);
 			String paginaDestino = cmd.executar(request, response);
-
+         
 			request.getRequestDispatcher(paginaDestino).forward(request,response);
 
 		} catch (Exception e) {

@@ -30,7 +30,7 @@ public  class CommandCadastrarPessoaFisica extends Command {
 		novo.setEndereco(req.getParameter("txtendereco"));
 		novo.setRg(req.getParameter("txtRG"));
 		
-		 
+		 novo.Cadastrar();
 
 			// req.getRequestDispatcher("MensagemOk.jsp").forward(req,resp);
 			// req.getRequestDispatcher("PessoaFisicaLista.jsp").forward(req,resp);
@@ -42,10 +42,10 @@ public  class CommandCadastrarPessoaFisica extends Command {
 			req.getSession().setAttribute("listaClientesFisicos",
 					retorno2);
 
-			req.getRequestDispatcher("ClienteFisicoLista.jsp").forward(
-					req, response);
+			//req.getRequestDispatcher("ClienteFisicoLista.jsp").forward(
+				//	req, response);
 		 
-		return "ClienteFisicoLista.jsp";  // consulta.jsp
+		return "frmClienteFisicoLista.jsp";  // consulta.jsp
 	}
 
  
