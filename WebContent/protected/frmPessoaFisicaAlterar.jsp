@@ -32,7 +32,7 @@
 	
 	<body>
 	
-		<jsp:useBean id="selecionarClienteFisico" class="command.CommandClienteFisicoAlterar" scope="session"/>
+		<jsp:useBean id="selecionarClienteFisico" class="model.PessoaFisica" scope="session"/>
 		
 		<form action="fc" method="POST">
 			
@@ -105,8 +105,8 @@
 						
 							<td class="auto-style3">Telefone:</td>
 								<td>
-							 <input type="text" maxlength="20" size="20" tabindex="2" name="Telefone" 
-					 	value="<jsp:getProperty name='selecionarClienteFisico' property='nome' />"></td>	
+							 <input type="text" maxlength="20" size="20" tabindex="2" name="telefone" 
+					 	value="<jsp:getProperty name='selecionarClienteFisico' property='telefone' />"></td>	
 							
 							</tr>
 							<tr>
@@ -158,7 +158,7 @@
 							<td class="auto-style3" style="width: 108px">Dt. Nasc.:</td>
 							<td>
 							<input type="text" maxlength="20" size="20" tabindex="2" name="Dt. Nasc" 
-					 	value="<jsp:getProperty name='selecionarClienteFisico' property='dataNascimento' />"></td>
+					 	value="<jsp:getProperty name='selecionarClienteFisico' property='dtNascimento' />"></td>
 							
 													
 													
@@ -178,7 +178,7 @@
 							<td class="auto-style3" style="width: 108px">Dt. Venc.:</td>
 							<td>
 							<input type="text" maxlength="20" size="20" tabindex="2" name="Dt. Venc" 
-					 	value="<jsp:getProperty name='selecionarClienteFisico' property='datavencimento' />"></td>
+					 	value="<jsp:getProperty name='selecionarClienteFisico' property='dtValidade' />"></td>
 							
 													
 													
@@ -196,7 +196,7 @@
 							<td class="auto-style3" style="height: 14px; width: 108px;">UF:</td>
 						<td>
 							<input type="text" maxlength="20" size="20" tabindex="2" name="UF" 
-					 	value="<jsp:getProperty name='selecionarClienteFisico' property='uf' />"></td>
+					 	value="<jsp:getProperty name='selecionarClienteFisico' property='estadoEmissor' />"></td>
 							
 													
 			

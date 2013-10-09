@@ -20,7 +20,7 @@ public class CommandClienteFisicoLista extends Command {
 
 		List<PessoaFisica> retorno2 = new ArrayList<PessoaFisica>();
 
-		retorno2 = pf.obterClientes("", "");
+		retorno2 = pf.obterClientes(request.getParameter("txtNome"), request.getParameter("txtCGC"));
 		
 		request.getSession().setAttribute("listaClientesFisicos",
 				retorno2);

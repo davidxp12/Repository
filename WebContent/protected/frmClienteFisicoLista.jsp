@@ -120,6 +120,8 @@
 							
 							List retorno = (ArrayList)request.getSession().getAttribute("listaClientesFisicos");
 							
+							System.out.println(retorno.size());
+							
 							for(Iterator<PessoaFisica> it = retorno.iterator(); it.hasNext(); ) {
 								PessoaFisica c = (PessoaFisica)it.next();
 							%>
@@ -142,7 +144,7 @@
 						<Table>
 							<tr>
 								<td colspan="13" style="width: 257px">
-									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'cadastrarPessoaFisica')">
+									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'IncluirPessoaFisica')">
 									<INPUT TYPE="button" NAME="alterar" Value="Alterar" onclick="executar(this.form,'clienteFisicoAlterar')">
 									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'consultar')">
 									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'excluirConfirma')">

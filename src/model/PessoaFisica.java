@@ -164,5 +164,23 @@ public class PessoaFisica extends Cliente {
 
 	}
 
+	public boolean Atualizar(PessoaFisica clienteFisico) {
+	
+		try{
+			
+			PessoaFisicaDao dao = new PessoaFisicaDao();
+			dao.alterarClienteFisico(clienteFisico);
+			
+		}catch(Exception ex){
+			
+		 System.out.println(ex);
+		 return false;
+		 
+		}
+		
+		
+		return true;
+	}
+
 
 }
