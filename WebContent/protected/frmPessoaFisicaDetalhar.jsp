@@ -36,7 +36,7 @@
 		
 		<form action="fc" method="POST">
 			
-			<input type="hidden" name="operacao" value="ClienteFisicoatualizar">
+			<input type="hidden" name="operacao" value="clienteFisicoLista">
 			
 			<div class="auto-style1" style="width: 732px">
 			
@@ -112,7 +112,7 @@
 							<tr>
 							<td class="auto-style3" style="width: 108px">E - Mail:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="txtEmail" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="E-mail" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='email' />"></td>
 							
 													
@@ -121,7 +121,7 @@
 						
 							<td class="auto-style3">CPF:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="txtCpf" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="CPF" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='cpf' />"></td>
 							
 													
@@ -216,7 +216,7 @@
 							
 							<td colspan="4" class="auto-style4">
 							
-								<input name="btnEnviar" type="submit" value="ClienteFisicoatualizar" style="width: 140px" />
+								<input name="btnEnviar" type="submit" value="Voltar" style="width: 140px" />
 							
 							</td>
 						

@@ -146,7 +146,7 @@
 								<td colspan="13" style="width: 257px">
 									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'IncluirPessoaFisica')">
 									<INPUT TYPE="button" NAME="alterar" Value="Alterar" onclick="executar(this.form,'clienteFisicoAlterar')">
-									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'consultar')">
+									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'clienteFisicoDetalhar')">
 									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'excluirConfirma')">
 								</td>
 							</tr>

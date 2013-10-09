@@ -18,7 +18,8 @@ public class CommandClienteFisicoAtualizar extends Command {
 		novo.setId(Integer.parseInt(req.getParameter("id")));
 		novo.setNome(req.getParameter("nome"));
 		novo.setEmail(req.getParameter("txtEmail"));
-		novo.setTelefone(req.getParameter("telefone")); // coloquei o mesmo nome do jsp, recomendavel padronizar com o padrão da tela de cadastro.
+		novo.setTelefone(req.getParameter("telefone"));
+		// coloquei o mesmo nome do jsp, recomendavel padronizar com o padrão da tela de cadastro.
 		novo.setCpf(req.getParameter("txtCpf"));  
 		novo.setSexo(req.getParameter("cboSexo"));
 		novo.setCnh(req.getParameter("txtCNH"));

@@ -36,6 +36,12 @@ public class CommandFactory {
 			return new CommandClienteFisicoAtualizar();
 		}
 		
+		if("clienteFisicoDetalhar".equals(operacao))
+		{
+			return new CommandClienteFisicoDetalhar();
+		}
+		
+		
 		// Pessoa juridica 
 		if("cadastrarPessoaJuridica".equals(operacao))
 		{
