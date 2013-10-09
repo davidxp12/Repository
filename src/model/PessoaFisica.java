@@ -182,5 +182,11 @@ public class PessoaFisica extends Cliente {
 		return true;
 	}
 
+	public void Excluir(int id) {
+
+		PessoaFisicaDao dao = new PessoaFisicaDao();
+		dao.excluirClienteFisico(id);
+	}
+
 
 }

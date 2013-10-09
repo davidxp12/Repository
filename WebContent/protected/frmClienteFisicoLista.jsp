@@ -147,7 +147,7 @@
 									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'IncluirPessoaFisica')">
 									<INPUT TYPE="button" NAME="alterar" Value="Alterar" onclick="executar(this.form,'clienteFisicoAlterar')">
 									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'clienteFisicoDetalhar')">
-									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'excluirConfirma')">
+									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'clienteFisicoExcluir')">
 								</td>
 							</tr>
 							    	  

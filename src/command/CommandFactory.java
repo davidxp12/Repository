@@ -40,7 +40,10 @@ public class CommandFactory {
 		{
 			return new CommandClienteFisicoDetalhar();
 		}
-		
+		if("clienteFisicoExcluir".equals(operacao))
+		{
+			return new CommandClienteFisicoExcluir();
+		}
 		
 		// Pessoa juridica 
 		if("cadastrarPessoaJuridica".equals(operacao))
