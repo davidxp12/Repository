@@ -31,6 +31,13 @@ public class CommandFactory {
 		{
 			return null;
 		}
+		// Pessoa juridica 
+		if("cadastrarPessoaJuridica".equals(operacao))
+		{
+			return new CommandCadastrarPessoaJuridica();
+		}
+		
+		
 		else{
 			
 			throw new Exception("Não existe command implementado para a operação informada");
