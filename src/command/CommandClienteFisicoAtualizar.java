@@ -16,9 +16,9 @@ public class CommandClienteFisicoAtualizar extends Command {
 		PessoaFisica novo = new PessoaFisica();
 
 		novo.setId(Integer.parseInt(req.getParameter("id")));
-		novo.setNome(req.getParameter("nome"));
+		novo.setNome(req.getParameter("txtNome"));
 		novo.setEmail(req.getParameter("txtEmail"));
-		novo.setTelefone(req.getParameter("telefone"));
+		novo.setTelefone(req.getParameter("txtTelefone"));
 		// coloquei o mesmo nome do jsp, recomendavel padronizar com o padrão da tela de cadastro.
 		novo.setCpf(req.getParameter("txtCpf"));  
 		novo.setSexo(req.getParameter("cboSexo"));
@@ -28,8 +28,8 @@ public class CommandClienteFisicoAtualizar extends Command {
 		novo.setCategoria(req.getParameter("txtCategoria"));
 		novo.setEstadoEmissor(req.getParameter("txtEstadoEmissor"));
 		novo.setPassaporte(req.getParameter("txtPassaporte"));
-		novo.setEndereco(req.getParameter("txtendereco"));
-		novo.setRg(req.getParameter("txtRG"));
+		novo.setEndereco(req.getParameter("txtEndereco"));
+		novo.setRg(req.getParameter("txtRg"));
 
 		if (novo.Atualizar(novo) == true) {
 

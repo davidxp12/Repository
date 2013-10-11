@@ -98,14 +98,14 @@
                             <tr>
 							<td class="auto-style3">Nome:</td>
 							<td>
-							 <input type="text" maxlength="20" size="20" tabindex="2" name="nome" 
+							 <input type="text" maxlength="20" size="20" tabindex="2" name="txtNome" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='nome' />"></td>	
 						</tr>
 						<tr>
 						
 							<td class="auto-style3">Telefone:</td>
 								<td>
-							 <input type="text" maxlength="20" size="20" tabindex="2" name="telefone" 
+							 <input type="text" maxlength="20" size="20" tabindex="2" name="txtTelefone" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='telefone' />"></td>	
 							
 							</tr>
@@ -129,7 +129,7 @@
 							<tr>
 							<td class="auto-style3" style="width: 108px">RG:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="RG" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtRg" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='rg' />"></td>
 							
 													
@@ -139,7 +139,7 @@
 						
 							<td class="auto-style3">Endereço:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="ENDERECO" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtEndereco" 
 					 	  value="<jsp:getProperty name='selecionarClienteFisico' property='endereco' />"></td>
 							
 													
@@ -157,7 +157,7 @@
 						   </td>
 							<td class="auto-style3" style="width: 108px">Dt. Nasc.:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="Dt. Nasc" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtDtNascimento" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='dtNascimento' />"></td>
 							
 													
@@ -168,7 +168,7 @@
 						
 							<td class="auto-style3">CNH:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="CNH" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtCNH" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='cnh' />"></td>
 							
 													
@@ -177,7 +177,7 @@
 							
 							<td class="auto-style3" style="width: 108px">Dt. Venc.:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="Dt. Venc" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtDtVencimento" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='dtValidade' />"></td>
 							
 													
@@ -188,14 +188,14 @@
 						
 							<td class="auto-style3" style="height: 14px">Categoria:</td>
 							<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="Categoria" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtCategoria" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='categoria' />"></td>
 							
 													
 						</tr>
 							<td class="auto-style3" style="height: 14px; width: 108px;">UF:</td>
 						<td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="UF" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtEstadoEmissor" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='estadoEmissor' />"></td>
 							
 													
@@ -206,7 +206,7 @@
 							
 							<td class="auto-style3" style="height: 14px">Passaporte:</td>
 <td>
-							<input type="text" maxlength="20" size="20" tabindex="2" name="Passaporte" 
+							<input type="text" maxlength="20" size="20" tabindex="2" name="txtPassaporte" 
 					 	value="<jsp:getProperty name='selecionarClienteFisico' property='passaporte' />"></td>
 							
 													
