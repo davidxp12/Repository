@@ -214,7 +214,7 @@ public class PessoaFisicaDao extends Cliente{
 				+ " WHERE nome like  ? AND cpf  like ?";
 
 		
-		if (nome == "" || nome == null && cpf == "" || cpf == null)
+		if (nome == "" &&  cpf == "" )
 		{
 		    sqlSelect = "SELECT * FROM tb_clientepf";
 		
