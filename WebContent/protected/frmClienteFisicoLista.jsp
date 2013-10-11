@@ -13,6 +13,25 @@
 <script language="JavaScript">
 		function executar(form,operacao){
 				form.operacao.value = operacao;
+
+				if(operacao =='clienteFisicoExcluir')
+			   {
+				  decisao = confirm("Deseja excluir esse cliente?");
+			
+				  if (decisao){
+			
+				   alert ("Cliente Excluido, com sucesso!");
+				   
+				   form.operacao.value ='clienteFisicoExcluir';
+					
+				   } else{
+				   
+				      form.operacao.value = 'clienteFisicoLista';
+				  
+				   }
+	          }
+			 
+				
 				form.submit();
 		}
 	</script>

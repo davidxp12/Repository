@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -10,7 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+ 
 import model.Login;
+import model.PessoaFisica;
 
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,12 +33,26 @@ public class LoginController extends HttpServlet {
 		
 		Login l = new Login(request.getParameter("txtLogin"),request.getParameter("txtSenha") );
 				
+		
+		
 		if (l.validarLogin()) {
 			
 		    request.getSession().setAttribute("txtLogin", l.getUsuario());
 		 // Arrumar tela frmPrincipal
 		    response.sendRedirect("protected/frmPrincipal.jsp");
 		  //  response.sendRedirect("protected/frmCadastrarPessoaFisica.jsp");
+		    
+			PessoaFisica pf = new PessoaFisica();
+
+			List<PessoaFisica> retorno2 = new ArrayList<PessoaFisica>();
+
+			retorno2 = pf.obterClientes(request.getParameter("txtNome"), request.getParameter("txtCGC"));
+			
+			request.getSession().setAttribute("listaClientesFisicos",
+					retorno2);
+			
+			
+		    
 		    
 		} else {
 			
