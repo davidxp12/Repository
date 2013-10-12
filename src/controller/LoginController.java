@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  
 import model.Login;
 import model.PessoaFisica;
+import model.PessoaJuridica;
 
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,14 +43,22 @@ public class LoginController extends HttpServlet {
 		    response.sendRedirect("protected/frmPrincipal.jsp");
 		  //  response.sendRedirect("protected/frmCadastrarPessoaFisica.jsp");
 		    
+		    
+		    
+		    // CONFIGURAÇÕES PESSOA FISICA.
 			PessoaFisica pf = new PessoaFisica();
-
 			List<PessoaFisica> retorno2 = new ArrayList<PessoaFisica>();
-
 			retorno2 = pf.obterClientes(request.getParameter("txtNome"), request.getParameter("txtCGC"));
+			request.getSession().setAttribute("listaClientesFisicos",retorno2);
 			
-			request.getSession().setAttribute("listaClientesFisicos",
-					retorno2);
+			  // CONFIGURAÇÕES PESSOA JURIDICA.
+			
+			PessoaJuridica pj = new PessoaJuridica();
+			List<PessoaJuridica> retorno3 = new ArrayList<PessoaJuridica>();
+			retorno3 = pj.obterClientesJuridicos(request.getParameter("txtNomeFantasia"), request.getParameter("txtCnpj"));
+			request.getSession().setAttribute("listaClientesJuridicos",retorno3);
+			
+			
 			
 			
 		    

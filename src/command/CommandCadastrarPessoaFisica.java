@@ -42,8 +42,6 @@ public  class CommandCadastrarPessoaFisica extends Command {
 			req.getSession().setAttribute("listaClientesFisicos",
 					retorno2);
 
-			//req.getRequestDispatcher("ClienteFisicoLista.jsp").forward(
-				//	req, response);
 		 
 		return "frmClienteFisicoLista.jsp";  // consulta.jsp
 	}

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.AcessoBD;
+import model.PessoaFisica;
 import model.PessoaJuridica;
  
 
@@ -62,7 +63,6 @@ public class PessoaJuridicaDao {
 				}
 			}
 		}
-
 	}//
 /*
 	public List<PessoaJuridica> obterPessoaJuridica(String nomeFantasia,
@@ -126,8 +126,8 @@ public class PessoaJuridicaDao {
 	}
 */
 	
-	public boolean alterarClienteJuridico(
-			PessoaJuridica pessoaJuridicaAtualizada) {
+	public boolean alterarClienteJuridico(PessoaJuridica pessoaJuridicaAtualizada) {
+		
 		String sqlInsert = "UPDATE tb_clientepj set nomefantasia = ? , nomejuridico = ?,"
 				+ " telefone = ? ,email = ? , endereco = ? ,cnpj = ?  where id = ?";
 
@@ -216,8 +216,8 @@ public class PessoaJuridicaDao {
 		}
 	}
 
-	public List<PessoaJuridica> obterClientesJuridicos(String nomeFantasia,
-			String cnpj) {
+	public List<PessoaJuridica> obterClientesJuridicos(String nomeFantasia, String cnpj) {
+		
 		ArrayList<PessoaJuridica> resultado = new ArrayList<PessoaJuridica>();
 		java.sql.Connection conn = null;
 
@@ -226,17 +226,20 @@ public class PessoaJuridicaDao {
 		PreparedStatement stm = null;
 		ResultSet rs = null;
 
-		sqlSelect = "SELECT * FROM tb_clientepj"
-				+ " WHERE nomeFantasia like  ? AND cnpj  like ?";
+		sqlSelect = "SELECT * FROM tb_clientepj WHERE nomejuridico like  ? AND cnpj  like ?";
 
-		if (nomeFantasia == "") {
+		if (nomeFantasia == "" || nomeFantasia == null)
+		{
 			nomeFantasia = "%";
 		}
-		if (cnpj == "") {
+		
+		if (cnpj == "" || cnpj == null) 
+		{
 			cnpj = "%";
 		}
 
 		try {
+			
 			conn = AcessoBD.obtemConexao();
 
 			stm = conn.prepareStatement(sqlSelect);
@@ -251,7 +254,7 @@ public class PessoaJuridicaDao {
 
 				pj.setId(rs.getInt("id"));
 				pj.setNomeFantasia(rs.getString("nomefantasia"));
-				pj.setNomeJuridico(rs.getString("nomejuridico"));
+				pj.setNomeJuridico(rs.getString("nomejuridico"));  // razão social
 				pj.setTelefone(rs.getString("telefone"));
 				pj.setEmail(rs.getString("email"));
 				pj.setEndereco(rs.getString("endereco"));
@@ -265,6 +268,56 @@ public class PessoaJuridicaDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return resultado;
+		} finally {
+			if (stm != null) {
+				try {
+					stm.close();
+				} catch (Exception e1) {
+					System.out.print(e1.getStackTrace());
+				}
+			}
+		}
+	}
+
+	public PessoaJuridica getClienteJuridicoById(int id) {
+
+		PessoaJuridica clientepj = new PessoaJuridica();
+   	 
+		java.sql.Connection conn = null;
+
+		String sqlSelect;
+
+		PreparedStatement stm = null;
+		ResultSet rs = null;
+
+		sqlSelect = "SELECT * FROM tb_clientepj WHERE id =?";
+
+
+		try {
+			conn = AcessoBD.obtemConexao();
+
+			stm = conn.prepareStatement(sqlSelect);
+			stm.setInt(1,id);
+		 
+			rs = stm.executeQuery();
+
+			while (rs.next()) {
+				
+				clientepj.setId(rs.getInt("id"));
+				clientepj.setNomeFantasia(rs.getString("nomefantasia"));
+				clientepj.setRazaosocial(rs.getString("nomejuridico"));
+				clientepj.setTelefone(rs.getString("telefone"));
+				clientepj.setEmail(rs.getString("email"));
+				clientepj.setEndereco(rs.getString("endereco"));
+				clientepj.setCnpj(rs.getString("cnpj"));
+ 
+			}
+
+			return clientepj;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return clientepj;
 		} finally {
 			if (stm != null) {
 				try {

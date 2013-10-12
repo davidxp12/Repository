@@ -11,10 +11,26 @@
 <html>
 
 <script language="JavaScript">
-		function executar(form,operacao){
-				form.operacao.value = operacao;
-				form.submit();
-		}
+function executar(form,operacao){
+	form.operacao.value = operacao;
+
+	if(operacao =='clienteJuridicoExcluir')
+    {
+	  decisao = confirm("Deseja excluir esse cliente?");
+	  
+	  if (decisao){
+
+	   alert ("Cliente Juridoco Excluido, com sucesso!");
+	   form.operacao.value ='clienteJuridicoExcluir';
+	 
+	   } else{
+	      form.operacao.value = 'clienteJuridicoLista';
+	   }
+    }
+	
+	form.submit();
+	
+}
 	</script>
 
 <head>
@@ -77,14 +93,14 @@
 				
 				<div>
 				
-					<form  action="ManterPessoaJuridicoController" method="Post">
+					<form  action="fc" method="Post">
 						
-						<input type="hidden" name="operacao" value="listar">
+						<input type="hidden" name="operacao" value="clienteJuridicoLista">
 						
 						<table>
 							<tbody style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: small">
 							<tr>
-								<td><label>Nome</label></td>
+								<td><label>Nome Juridico</label></td>
 								<td>
 								<input type="text" maxlength="7" size="7" tabindex="0" name="txtNome" style="width: 120px"></td>
 							
@@ -120,6 +136,8 @@
 							
 							List retorno = (ArrayList)request.getSession().getAttribute("listaClientesJuridicos");
 							
+							System.out.println(retorno.size());
+							
 							for(Iterator<PessoaJuridica> it = retorno.iterator(); it.hasNext(); ) {
 								PessoaJuridica c = (PessoaJuridica)it.next();
 							%>
@@ -142,10 +160,10 @@
 						<Table>
 							<tr>
 								<td colspan="13" style="width: 257px">
-									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'incluir')">
-									<INPUT TYPE="button" NAME="alterar" Value="Alterar" onclick="executar(this.form,'alterar')">
-									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'consultar')">
-									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'excluirConfirma')">
+									<INPUT TYPE="button" NAME="incluir" Value="Incluir"onclick="executar(this.form,'IncluirPessoaJuridica')">
+									<INPUT TYPE="button" NAME="alterar" Value="Alterar" onclick="executar(this.form,'clienteJuridicoAlterar')">
+									<INPUT TYPE="button" NAME="detalhar" Value="Detalhar"onclick="executar(this.form,'clienteJuridicoDetalhar')">
+									<INPUT TYPE="button" NAME="excluir" Value="Excluir"	onclick="executar(this.form,'clienteJuridicoExcluir')">
 								</td>
 							</tr>
 							    	  

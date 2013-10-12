@@ -24,14 +24,16 @@ public class CommandCadastrarPessoaJuridica extends Command {
 		novo.setTelefone((req.getParameter("txtTelefone")));
 		novo.setEndereco((req.getParameter("txtEndereco")));
 		
+		
+		novo.Cadastrar(novo);
+		
 		List<PessoaJuridica> retorno2 = new ArrayList<PessoaJuridica>();
 
 		retorno2 = novo.obterClientesJuridicos("", "");
-		req.getSession().setAttribute("ClienteJuridicoLista.jsp",
+		req.getSession().setAttribute("listaClientesJuridicos",
 				retorno2);
 
-		req.getRequestDispatcher("ClienteJuridicoLista.jsp").forward(
-				req, response);
+	 
 		
 		
 		

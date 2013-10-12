@@ -10,7 +10,7 @@ public class CommandFactory {
 		{
 			return new CommandCadastrarVeiculo();
 		}
-		
+	
 		// Command Pessoa F�sica.
 		
 		if("cadastrarPessoaFisica".equals(operacao))
@@ -46,11 +46,30 @@ public class CommandFactory {
 		}
 		
 		// Pessoa juridica 
+		
 		if("cadastrarPessoaJuridica".equals(operacao))
 		{
 			return new CommandCadastrarPessoaJuridica();
+		}		
+		if("clienteJuridicoLista".equals(operacao))
+		{
+			return new CommandClienteJuridicoLista();
 		}
 		
+		if("IncluirPessoaJuridica".equals(operacao))
+		{
+			
+			return new CommandClienteJuridicoIncluir();
+		}
+		if("clienteJuridicoAlterar".equals(operacao))
+		{
+			return new CommandClienteJuridicoAlterar();
+		}
+		//incompleto
+		if("PessoaJuridicaAtualizado".equals(operacao))
+		{
+			return new CommandClienteJuridicoAtualizar();
+		}
 		else{
 			
 			throw new Exception("Não existe command implementado para a operação informada");
