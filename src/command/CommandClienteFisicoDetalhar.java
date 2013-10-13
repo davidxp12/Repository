@@ -26,13 +26,7 @@ public class CommandClienteFisicoDetalhar extends Command {
 		List<PessoaFisica> retorno2 = new ArrayList<PessoaFisica>();
 
 		retorno2 = pf.obterClientes("", "");
-		request.getSession().setAttribute("listaClientesFisicos",
-				retorno2);
-		
-		
-		
-
-
+		request.getSession().setAttribute("listaClientesFisicos",retorno2);
 		
 		
 		return "frmPessoaFisicaDetalhar.jsp";

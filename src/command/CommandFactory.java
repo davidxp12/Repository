@@ -50,7 +50,8 @@ public class CommandFactory {
 		if("cadastrarPessoaJuridica".equals(operacao))
 		{
 			return new CommandCadastrarPessoaJuridica();
-		}		
+		}	
+		
 		if("clienteJuridicoLista".equals(operacao))
 		{
 			return new CommandClienteJuridicoLista();
@@ -58,17 +59,24 @@ public class CommandFactory {
 		
 		if("IncluirPessoaJuridica".equals(operacao))
 		{
-			
 			return new CommandClienteJuridicoIncluir();
 		}
 		if("clienteJuridicoAlterar".equals(operacao))
 		{
 			return new CommandClienteJuridicoAlterar();
 		}
-		//incompleto
+	 
 		if("PessoaJuridicaAtualizado".equals(operacao))
 		{
 			return new CommandClienteJuridicoAtualizar();
+		}
+		if("clienteJuridicoDetalhar".equals(operacao))
+		{
+			return new CommandClienteJuridicoDetalhar();
+		}
+		if("clienteJuridicoExcluir".equals(operacao))
+		{
+			return new CommandClienteJuridicoExcluir();
 		}
 		else{
 			

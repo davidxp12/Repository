@@ -90,6 +90,12 @@ public class PessoaJuridica extends Cliente {
 		
 		return dao.getClienteJuridicoById(id);
 	}
+
+	public void Excluir(int id) {
+		
+		PessoaJuridicaDao dao = new PessoaJuridicaDao();
+		dao.excluirClienteJuridico(id);
+	}
 	
 	 
 
