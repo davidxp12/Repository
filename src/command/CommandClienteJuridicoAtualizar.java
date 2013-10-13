@@ -1,19 +1,40 @@
 package command;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.PessoaJuridica;
+
 public class CommandClienteJuridicoAtualizar extends Command {
 
-	public CommandClienteJuridicoAtualizar() {
-		// TODO Auto-generated constructor stub
-	}
-
 	 
-	public String executar(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	 
+	public String executar(HttpServletRequest req, HttpServletResponse response) throws Exception {
 		 
-		return null;
+	PessoaJuridica novo =  new PessoaJuridica();
+		
+		novo.setId((Integer.parseInt(req.getParameter("id"))));
+		novo.setCnpj((req.getParameter("txtCnpj")));
+		novo.setNomeFantasia((req.getParameter("txtNomeFantasia")));
+		novo.setRazaosocial((req.getParameter("txtRazaoSocial")));
+		novo.setEmail((req.getParameter("txtEmail")));
+		novo.setTelefone((req.getParameter("txtTelefone")));
+		novo.setEndereco((req.getParameter("txtEndereco")));
+		
+		
+		
+		novo.Atualizar(novo);
+		
+		List<PessoaJuridica> retorno2 = new ArrayList<PessoaJuridica>();
+
+		retorno2 = novo.obterClientesJuridicos("", "");
+		req.getSession().setAttribute("listaClientesJuridicos",	retorno2);
+
+		
+		return "frmClienteJuridicoLista.jsp";
 	}
 
 }

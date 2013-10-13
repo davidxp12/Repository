@@ -141,7 +141,7 @@ public class PessoaJuridicaDao {
 			stm = conn.prepareStatement(sqlInsert);
 
 			stm.setString(1, pessoaJuridicaAtualizada.getNomeFantasia());
-			stm.setString(2, pessoaJuridicaAtualizada.getNome());
+			stm.setString(2, pessoaJuridicaAtualizada.getRazaosocial());
 			stm.setString(3, pessoaJuridicaAtualizada.getTelefone());
 			stm.setString(4, pessoaJuridicaAtualizada.getEmail());
 			stm.setString(5, pessoaJuridicaAtualizada.getEndereco());
@@ -228,6 +228,15 @@ public class PessoaJuridicaDao {
 
 		sqlSelect = "SELECT * FROM tb_clientepj WHERE nomejuridico like  ? AND cnpj  like ?";
 
+		if (nomeFantasia == "" &&  cnpj == "" )
+		{
+		    sqlSelect = "SELECT * FROM tb_clientepf";
+		
+		    return obterAllClientesJuridicos(sqlSelect);
+		
+	     }
+		
+		
 		if (nomeFantasia == "" || nomeFantasia == null)
 		{
 			nomeFantasia = "%";
@@ -279,6 +288,52 @@ public class PessoaJuridicaDao {
 		}
 	}
 
+	private List<PessoaJuridica> obterAllClientesJuridicos(String sqlSelect) {
+
+		ArrayList<PessoaJuridica> resultado = new ArrayList<PessoaJuridica>();
+		java.sql.Connection conn = null;
+
+		PreparedStatement stm = null;
+		ResultSet rs = null;
+
+		sqlSelect = "SELECT * FROM tb_clientepj";
+
+		try {
+		
+			conn = AcessoBD.obtemConexao();
+			stm = conn.prepareStatement(sqlSelect);
+			rs = stm.executeQuery();
+
+			while (rs.next()) {
+
+				PessoaJuridica pj = new PessoaJuridica();
+
+				pj.setId(rs.getInt("id"));
+				pj.setNomeFantasia(rs.getString("nomefantasia"));
+				pj.setNomeJuridico(rs.getString("nomejuridico"));  // razão social
+				pj.setTelefone(rs.getString("telefone"));
+				pj.setEmail(rs.getString("email"));
+				pj.setEndereco(rs.getString("endereco"));
+				pj.setCnpj(rs.getString("cnpj"));
+
+				resultado.add(pj);
+			}
+
+			return resultado;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return resultado;
+		} finally {
+			if (stm != null) {
+				try {
+					stm.close();
+				} catch (Exception e1) {
+					System.out.print(e1.getStackTrace());
+				}
+			}
+		}
+	}
 	public PessoaJuridica getClienteJuridicoById(int id) {
 
 		PessoaJuridica clientepj = new PessoaJuridica();

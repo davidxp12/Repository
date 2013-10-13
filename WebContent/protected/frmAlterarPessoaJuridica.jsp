@@ -141,7 +141,7 @@
 							<td style="width: 193px">
 							&nbsp;</td>
 							<td class="auto-style2" style="width: 101px">
-							<input name="Alterar " type="submit" value="PessoaJuridicaAtualizado" style="width: 100px"></td>
+							<input name="Alterar " type="submit" value="Atualizar" style="width: 100px"></td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
