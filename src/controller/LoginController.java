@@ -59,8 +59,16 @@ public class LoginController extends HttpServlet {
 			request.getSession().setAttribute("listaClientesJuridicos",retorno3);
 			
 			
+			//CONFIGURAÇÕES CONDUTOR
+			retorno3 = pj.obterClientesJuridicos("","");
 			
+			for(int i=0; i < retorno3.size(); i++)
+			{
+				System.out.println("Nome juridico: " + retorno3.get(i).getNome() + " ID: " + retorno3.get(i).getId());
+			}
 			
+			request.getSession().setAttribute("pessoasJuridicas",retorno3);
+				
 		    
 		    
 		} else {

@@ -45,7 +45,7 @@ public class CommandFactory {
 			return new CommandClienteFisicoExcluir();
 		}
 		
-		// Pessoa juridica 
+		// Command Pessoa Juridica 
 		
 		if("cadastrarPessoaJuridica".equals(operacao))
 		{
@@ -77,6 +77,11 @@ public class CommandFactory {
 		if("clienteJuridicoExcluir".equals(operacao))
 		{
 			return new CommandClienteJuridicoExcluir();
+		}
+		// Command Condutor
+		if("cadastrarCondutor".equals(operacao))
+		{
+			return new CommandCondutorJuridico();
 		}
 		else{
 			
