@@ -15,15 +15,22 @@ public class CommandCondutorJuridico extends Command {
 		v.setNome(request.getParameter("txtNome"));
         v.setDatNasc(request.getParameter("txtDataNascimento"));
         v.setNumHabil(request.getParameter("txtHabilitacao"));
-	    v.setCatHabil(request.getParameter("txtCategoriaHabilitacao"));
+	    v.setCatHabil(request.getParameter("txtCategoria"));
 	    v.setSexo(request.getParameter("txtSexo"));
 	    v.setValidade(request.getParameter("txtValidade"));
+	    v.setCpf(request.getParameter("txtCpf"));
+	    v.setRg(request.getParameter("txtRg"));
+	    v.setPassaporte(request.getParameter("txtPassaporte"));	
+	    v.setSexo(request.getParameter("cboSexo"));
+	    v.setDatNasc(request.getParameter("txtDataNascimento"));
+	    v.setUF(request.getParameter("txtEstadoEmissor"));
+	    v.setValidade(request.getParameter("txtValidade"));
 	    
-	    System.out.println(request.getParameter("txtPessoaJuridica"));
+	    System.out.println(request.getParameter("cboPessoaJuridica"));
 	    
-	   v.setId(Integer.parseInt(request.getParameter("txtPessoaJuridica") == null ? request.getParameter("txtPessoaJuridica") : "1"));  // id do juridico
+	   v.setId(Integer.parseInt(request.getParameter("cboPessoaJuridica")));  // id do juridico
+	  
 	   
-	    
 	    v.cadastrarCondutor();
 	    
 		return "frmCondutorCadastrar.jsp";   //"frmCondutorListar.jps"

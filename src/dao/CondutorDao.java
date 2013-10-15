@@ -17,8 +17,8 @@ public class CondutorDao {
 	public boolean cadastrar(Condutor condutor) {
 		boolean sucesso = false;
 
-		String sqlInsert = "INSERT INTO Condutor(nome , cpf, rg , dataNascimento , idCliente, numeroHabilitacao , "
-				+ "categoriaHabilitacao , sexo , validade) " + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sqlInsert = "INSERT INTO tb_condutor(nome , cpf, rg , datanascimento , idCliente, numeroHabilitacao , "
+				+ "categoriahabilitacao , sexo , validade, passaporte,uf) " + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
 		Connection conn = null;
 		PreparedStatement stm = null;
@@ -37,6 +37,9 @@ public class CondutorDao {
 			stm.setString(7, condutor.getCatHabil());
             stm.setString(8, condutor.getSexo());
             stm.setString(9, condutor.getValidade());
+            stm.setString(10,condutor.getPassaporte());
+            stm.setString(11, condutor.getUF());
+          
        
 			stm.execute();
 			sucesso = true;

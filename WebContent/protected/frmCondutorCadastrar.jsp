@@ -22,11 +22,11 @@ function executar(form,operacao){
 	  {
 		  
 		 
-  	      alert("Por favor, dever ser selecionado a pessoa juridica do condutor!" + " " + obj.options[obj.selectedIndex].value );
+  	      alert("Por favor, dever ser selecionado a pessoa juridica do condutor!" + " " + obj.options[obj.selectedIndex].value);
   	      
      }else{
          
-    	  alert( obj.options[obj.selectedIndex].value );
+    	  alert( "Condutor cadastrado com sucesso!");
     	  
     	  //var obj2 = document.getElementById('txtPessoaJuridica');
     	  //obj2 = obj.options[obj.selectedIndex].value;
@@ -142,7 +142,7 @@ function executar(form,operacao){
 						<tr>
 						
 							<td height="33" class="auto-style3" style="width: 87px; height: 29px">Passaporte:</td>
-							<td style="height: 29px"><input name="txtChassi" type="text" maxlength="20" size="20"/> </td>
+							<td style="height: 29px"><input name="txtPassaporte" type="text" maxlength="20" size="20"/> </td>
 							
 							<td class="auto-style3">Sexo:</td>
 							
@@ -162,23 +162,19 @@ function executar(form,operacao){
 						  <td style="height: 32px">
 						  <select name="cboPessoaJuridica" id="txtPessoaJuridica" style="width: 158px"  />
 						  <option value="">Selecione Pessoa Juridica</option>
-						  	 <option  value="1" >Selecione Pessoa Juridica2 </option>
+						  	 
 						  <%
 						//value="<jsp:getProperty name='pessoasJuridicas' property='nome'
 						List retorno = (ArrayList)request.getSession().getAttribute("pessoasJuridicas");
 							for(Iterator<PessoaJuridica> it = retorno.iterator(); it.hasNext(); ) {
 								PessoaJuridica c = (PessoaJuridica)it.next();
 									
-								System.out.println(c.getNome());
+								System.out.println(c.getNome() );
 								
 						%>	
-								 
-						   
-						    <option value="<%=c.getId()%>"><% if(c.getNome() == null){c.getNomeFantasia();}
-						    else{c.getNome();}
-						    %> </option>
+						    <option value="<%=c.getId()%>"> <%=c.getNome()%></option>
 						<%
-							} 
+							} 	
 						%>
 						  </select></td>
 				  </tr>
