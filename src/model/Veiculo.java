@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import dao.DaoFactory;
 import dao.VeiculoDao;
@@ -8,13 +9,43 @@ import dao.VeiculoDao;
 
 public class Veiculo implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3637758993155982792L;
 
 	/** */
-	private String chassi;
+	private String chassi = "";
+	
+	/** */
+	private String placa ="";
+	
+	/** */
+	private String cidade ="";
+	
+	/** */
+	private String estado ="";
+	
+	/** */
+	private String grupo ="";
+	
+	/** */
+	private String modelo ="";
+	
+	/** */
+	private String fabricante ="";
+	
+	/** */
+	private String ano ="";
+	
+	/** */
+	private Integer km =0;
+	
+	/** */
+	private double valorTarifaLivre =0;
+	
+	/** */
+	private double valorTarifaKM=0;
+	
+	/** */	
+	private Integer id=0;	
 	
 	public Veiculo(String chassi, String placa, String cidade, String estado,
 			String grupo, String modelo, String fabricante, String ano,
@@ -31,6 +62,7 @@ public class Veiculo implements Serializable{
 		this.km = km;
 		this.valorTarifaLivre = valorTarifaLivre;
 		this.valorTarifaKM = valorTarifaKM;
+
 	}
 
 	public Veiculo() {
@@ -125,43 +157,7 @@ public class Veiculo implements Serializable{
 		this.valorTarifaKM = valorTarifaKM;
 	}
 
-	/** */
-	private String placa;
-	
-	/** */
-	private String cidade;
-	
-	/** */
-	private String estado;
-	
-	/** */
-	private String grupo;
-	
-	/** */
-	private String modelo;
-	
-	/** */
-	private String fabricante;
-	
-	/** */
-	private String ano;
-	
-	/** */
-	private Integer km;
-	
-	/** */
-	private double valorTarifaLivre;
-	
-	/** */
-	private double valorTarifaKM;
-	
-	/** */
-	public void cadastrar()  throws Exception {
-		
-		VeiculoDao dao = DaoFactory.obterVeiculoDao();
-		
-	}
-	
+
 	/** 
 	public listaVeiculo consultar() {
 	
@@ -181,4 +177,28 @@ public class Veiculo implements Serializable{
 	public void detalhar(String placa) {
 	
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+	
+	
+	public void cadastrar()  throws Exception {
+		
+		VeiculoDao dao = DaoFactory.obterVeiculoDao();
+		dao.cadastrar(this);
+		
+	}
+	
+	public List<Veiculo> pesquisar() throws Exception {
+		
+		VeiculoDao dao = DaoFactory.obterVeiculoDao();
+		return dao.obterVeiculos(chassi, placa);
+
+	}
+	
 }

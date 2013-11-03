@@ -9,6 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Login;
 
 /**
@@ -46,7 +47,7 @@ public class LoginFilter implements Filter {
         }
         
 	}
-   // teste
+
 	public void init(FilterConfig fConfig) throws ServletException {
 		
 	}

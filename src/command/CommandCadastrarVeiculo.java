@@ -26,7 +26,7 @@ public  class CommandCadastrarVeiculo extends Command {
 		 
 		novo.cadastrar();
 		
-		return "consulta.jsp";
+		return "frmListaVeiculo.jsp";
 		
 	}
 	

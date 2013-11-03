@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
- 
 import model.Login;
 import model.PessoaFisica;
 import model.PessoaJuridica;
@@ -30,19 +29,16 @@ public class LoginController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     										throws ServletException, IOException {
-
-		
+    	
 		Login l = new Login(request.getParameter("txtLogin"),request.getParameter("txtSenha") );
 				
-		
-		
 		if (l.validarLogin()) {
 			
+
 		    request.getSession().setAttribute("txtLogin", l.getUsuario());
 		 // Arrumar tela frmPrincipal
 		    response.sendRedirect("protected/frmPrincipal.jsp");
 		  //  response.sendRedirect("protected/frmCadastrarPessoaFisica.jsp");
-		    
 		    
 		    
 		    // CONFIGURAÇÕES PESSOA FISICA.
@@ -51,8 +47,7 @@ public class LoginController extends HttpServlet {
 			retorno2 = pf.obterClientes(request.getParameter("txtNome"), request.getParameter("txtCGC"));
 			request.getSession().setAttribute("listaClientesFisicos",retorno2);
 			
-			  // CONFIGURAÇÕES PESSOA JURIDICA.
-			
+			  // CONFIGURAÇÕES PESSOA JURIDICA.	
 			PessoaJuridica pj = new PessoaJuridica();
 			List<PessoaJuridica> retorno3 = new ArrayList<PessoaJuridica>();
 			retorno3 = pj.obterClientesJuridicos(request.getParameter("txtNomeFantasia"), request.getParameter("txtCnpj"));
@@ -68,8 +63,11 @@ public class LoginController extends HttpServlet {
 			}
 			
 			request.getSession().setAttribute("pessoasJuridicas",retorno3);
-				
-		    
+						
+			
+		    request.getSession().setAttribute("txtLogin", l.getUsuario());
+		
+		    response.sendRedirect("protected/frmPrincipal.jsp");
 		    
 		} else {
 			

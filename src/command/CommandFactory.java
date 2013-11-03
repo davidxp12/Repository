@@ -6,13 +6,44 @@ public class CommandFactory {
 	
 	public static Command obterCommand(String operacao) throws Exception {
 		
-		if ("cadastrarVeiculo".equals(operacao)) 
-		{
+		if ("cadastrarVeiculo".equals(operacao)) {
+			
 			return new CommandCadastrarVeiculo();
+			
 		}
-	
-		// Command Pessoa Física.
 		
+		if ("cadastrarPessoaFisica".equals(operacao)) {
+				
+			return new CommandCadastrarPessoaFisica();	
+				
+		}
+		
+		if ("incluirVeiculo".equals(operacao)){
+			
+			return new CommandIncluirVeiculo();
+		
+		}
+		
+		if ("locarVeiculo".equals(operacao)){
+				
+			return new CommandLocarVeiculo();
+		
+		}
+		if ("locacaoVeiculo".equals(operacao)){
+			
+			return new CommandLocacaoVeiculo();
+		
+		}
+		if ("devolucaoVeiculo".equals(operacao)){
+			
+			return new CommandLocacaoVeiculo();			
+							
+		}		
+		if ("devolverVeiculo".equals(operacao)){
+				
+			return new CommandDevolverVeiculo();			
+							
+		}
 		if("cadastrarPessoaFisica".equals(operacao))
 		{
 			return new CommandCadastrarPessoaFisica();
@@ -82,13 +113,14 @@ public class CommandFactory {
 		if("cadastrarCondutor".equals(operacao))
 		{
 			return new CommandCondutorJuridico();
-		}
-		else{
+		}		
+		
+		
+		else {
+		
 			
-			throw new Exception("NÃ£o existe command implementado para a operaÃ§Ã£o informada");
+			throw new Exception("Não existe command implementado para a operação informada");
+			
 		}
 	}
-
-	 
-
 }
