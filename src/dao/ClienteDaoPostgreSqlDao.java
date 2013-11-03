@@ -74,6 +74,11 @@ public class ClienteDaoPostgreSqlDao implements ClienteDao{
 				}
 			}
 	}
+
+	public List<Cliente> obterCliente() {
+		 
+		return   obterClientes("","");
+	}
       
      
      

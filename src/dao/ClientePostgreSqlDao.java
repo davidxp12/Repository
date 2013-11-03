@@ -10,7 +10,7 @@ import model.Veiculo;
 
 public class ClientePostgreSqlDao implements ClienteDao {
 
-	@Override
+	
 	public List<Cliente> obterCliente() {
 		
 		ArrayList<Cliente> resultado = new ArrayList<Cliente>();

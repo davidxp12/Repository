@@ -2,6 +2,8 @@ package model;
 
 import dao.DaoFactory;
 import dao.LocacaoDao;
+import dao.LocacaoPostgreSqlDao;
+
 import java.util.List;
 
 public class Locacao {
@@ -64,17 +66,24 @@ public class Locacao {
 	
 	public void LocarVeiculo (){
 		
-		LocacaoDao dao = DaoFactory.obterLocacaoDao();
-		dao.cadastrar(this);
+		//LocacaoDao dao = DaoFactory.obterLocacaoDao();
+		//dao.cadastrar(this);
+		
+		LocacaoPostgreSqlDao dao2 = new LocacaoPostgreSqlDao();
+		dao2.cadastrar(this);
 		
 	}
 	public void devolverVeiculo() {
-		LocacaoDao dao =  DaoFactory.obterLocacaoDao();
-		dao.alterar(this);		
+		//LocacaoDao dao =  DaoFactory.obterLocacaoDao();
+		LocacaoPostgreSqlDao dao2 = new LocacaoPostgreSqlDao();
+		dao2.obterLocacoes();
+		dao2.alterar(this);		
 	}	
 	
 	public List<Locacao> obterLocacoes() throws Exception{
-		LocacaoDao dao = DaoFactory.obterLocacaoDao();
-		return dao.obterLocacoes();
+		//LocacaoDao dao = DaoFactory.obterLocacaoDao();
+		LocacaoPostgreSqlDao dao2 = new LocacaoPostgreSqlDao();
+		
+		return dao2.obterLocacoes();
 	}
 }
