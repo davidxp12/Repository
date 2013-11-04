@@ -9,7 +9,8 @@
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>controller.FrontController</servlet-class>
-  </servlet><servlet>
+  </servlet>
+  <servlet>
     <servlet-name>LoginController</servlet-name>
     <servlet-class>controller.LoginController</servlet-class>
   </servlet>
